@@ -1,0 +1,22 @@
+require 'sinatra'
+require 'sinatra/reloader'
+require 'erb'
+
+get "/" do
+  File.open("articles.txt", "r") do |f|
+    @articles = f.read.split("\n")
+  end
+  erb :top
+end
+
+get "/new" do
+  erb :new
+end
+
+post "/" do
+  @article = params[:article]
+  File.open("articles.txt", "a") do |f|
+    f.puts("#{@article}")
+  end
+  erb :show
+end
