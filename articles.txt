@@ -1,4 +1,1 @@
-hidemi,anata
-眠い,hoge
-fdsjajf;al;
-nemui
+サンプル
