@@ -14,7 +14,8 @@ get "/new" do
 end
 
 post "/" do
-  @article = params[:article]
+  @article_array = params[:article].split("\r\n")
+  @article = @article_array.join(",")
   File.open("articles.txt", "a") do |f|
     f.puts("#{@article}")
   end

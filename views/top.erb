@@ -1,7 +1,8 @@
 <h1>メモ一覧</h1>
 <% @articles.each do |line| %>
+<% column = line.split(",") %>
 <ul>
-  <li><%= line %></li>
+  <li><a href="/" method="post"><%= column[0] %></a></li>
 </ul>
 <% end %>
 <form action="/new" method="get">

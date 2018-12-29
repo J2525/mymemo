@@ -1,5 +1,6 @@
-<h1>書き込みました</h1>
-<p><%= @article %> </p>
+<% @article_array.each do |line| %>
+  <p><%= line %></p>
+<% end %>
 <form action="/" method="get">
   <input type="submit" value="戻る">
 </form>
