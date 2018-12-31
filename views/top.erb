@@ -3,7 +3,7 @@
 <% column = line.split(",") %>
 <% id = 0 %>
 <ul>
-  <li><a href="/show/<%= id %>"><%= column[0] %></a></li>
+  <li><a href="/show/<%= id.to_s %>"><%= column[0] %></a></li>
 </ul>
 <% id += 1 %>
 <% end %>
