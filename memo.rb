@@ -21,3 +21,9 @@ post "/" do
   end
   erb :show
 end
+
+get '/show/:id' do
+  @paraData = File.open("articles.txt").readlines
+  @article_array = @paraData[params["id"]].split(",")
+  erb :show
+end
