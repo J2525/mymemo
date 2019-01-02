@@ -1,11 +1,11 @@
 <h1>メモ一覧</h1>
-<% id = 0 %>
-<% @articles.each do |line| %>
-<% column = line.split(",") %>
-<ul>
-  <li><a href="/show/<%= id %>"><%= column[0] %></a></li>
-</ul>
-<% id += 1 %>
+<% @articles.each_with_index do |article, i| %>
+  <% column = article.split(",") %>
+  <ul>
+    <li>
+      <a href="/show/<%= i %>"><%= column[0] %></a>
+    </li>
+  </ul>
 <% end %>
 <form action="/new" method="get">
   <input type="submit" value="新規メモ作成">

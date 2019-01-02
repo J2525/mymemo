@@ -1,0 +1,19 @@
+<form action="/update/<%= @id %>" method="post">
+  <textarea name="article" rows="10" cols="40">
+    <% @article_array.each do |line| %>
+      <%= line %>
+    <% end %>
+  </textarea>
+  <p></p>
+  <button type="submit">送信する</button>
+</form>
+<form action="/" method="get">
+  <input type="submit" value="戻る">
+</form>
+
+<h1>新規メモ</h1>
+<form action="/" method="post">
+  <textarea name="article" rows="4" cols="40">ここにメモを記入してください。</textarea>
+  <p></p>
+  <button type="submit">送信する</button>
+</form>
