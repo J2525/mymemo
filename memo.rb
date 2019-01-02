@@ -36,12 +36,22 @@ get '/edit/:id' do
   erb :edit
 end
 
-post '/update/:id' do
-  File.open("articles.txt", "w+") do |f|
-    @articles = f.read.split("\n") #ファイルの中身を配列に入れる
-    @articles[params["id"].to_i] = params[:article].split("\r\n").join(",") #要素を置き換える
-    f.puts("#{@articles}") #書き込む
+patch '/update/:id' do
+  id = params["id"].to_i
+  articles = []
+
+  File.open("articles.txt", "r") do |f|
+    row_text = f.read
+    articles = row_text.split("\n")
   end
+
+  articles[id] = params[:article].split("\r\n").join(",")
+  updated_row_text = articles.join("\n")
+
+  File.open("articles.txt", "w") do |f|
+    f.puts(updated_row_text)
+  end
+
   @article_array = params[:article].split("\r\n")
   erb :show
 end
