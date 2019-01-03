@@ -53,5 +53,15 @@ patch '/update/:id' do
   end
 
   @article_array = params[:article].split("\r\n")
-  erb :show
+  redirect "/show/#{params["id"]}"
+end
+
+delete "/destroy/:id" do
+  @id = params["id"].to_i
+  @paraData = File.open("articles.txt").readlines
+  @paraData.delete_at(params["id"].to_i)
+  File.open("articles.txt", "w") do |f|
+    f.puts(@paraData)
+  end
+  redirect "/"
 end

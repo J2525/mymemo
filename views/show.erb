@@ -7,3 +7,7 @@
 <form action="/edit/<%= @id %>" method="get">
   <input type="submit" value="編集する">
 </form>
+<form action="/destroy/<%= @id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <input type="submit" value="削除する">
+</form>
