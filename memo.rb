@@ -19,7 +19,7 @@ post "/" do
   File.open("articles.txt", "a") do |f|
     f.puts("#{@article}")
   end
-  erb :show
+  redirect "/"
 end
 
 get '/show/:id' do

@@ -1,10 +1,7 @@
 <form action="/update/<%= @id %>" method="post">
   <input name="_method" type="hidden" value="patch">
-  <textarea name="article" rows="10" cols="40">
-    <% @article_array.each do |line| %>
-      <%= line %>
-    <% end %>
-  </textarea>
+  <textarea name="article" rows="10" cols="40"><% @article_array.each do |line| %><%= line %>
+<% end %></textarea>
   <p></p>
   <button type="submit">送信する</button>
 </form>
