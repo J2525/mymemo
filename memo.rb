@@ -22,7 +22,7 @@ post "/" do
   redirect "/"
 end
 
-get '/show/:id' do
+get '/memo/:id' do
   @id = params["id"].to_i
   @paraData = File.open("articles.txt").readlines
   @article_array = @paraData[params["id"].to_i].split(",")
@@ -53,10 +53,10 @@ patch '/update/:id' do
   end
 
   @article_array = params[:article].split("\r\n")
-  redirect "/show/#{params["id"]}"
+  redirect "/memo/#{params["id"]}"
 end
 
-delete "/destroy/:id" do
+delete "/delete/:id" do
   @id = params["id"].to_i
   @paraData = File.open("articles.txt").readlines
   @paraData.delete_at(params["id"].to_i)
