@@ -36,7 +36,7 @@ get '/edit/:id' do
   erb :edit
 end
 
-patch '/update/:id' do
+patch '/memo/:id' do
   id = params["id"].to_i
   articles = []
 
@@ -56,7 +56,7 @@ patch '/update/:id' do
   redirect "/memo/#{params["id"]}"
 end
 
-delete "/delete/:id" do
+delete "/memo/:id" do
   @id = params["id"].to_i
   @paraData = File.open("articles.txt").readlines
   @paraData.delete_at(params["id"].to_i)
