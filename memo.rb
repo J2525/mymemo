@@ -29,7 +29,7 @@ get '/memo/:id' do
   erb :show
 end
 
-get '/edit/:id' do
+get '/editing/:id' do
   @id = params["id"].to_i
   @paraData = File.open("memos.txt").readlines
   @article_array = @paraData[params["id"].to_i].split(",")
